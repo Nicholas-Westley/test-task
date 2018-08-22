@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>age</th>
+      <th>remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>{{ person.name }}</td>
+      <td>
+        <span [style.color]="person.age >= 18 ? 'green' : 'red' ">
+          {{ person.age }}
+        </span>
+        <span *ngIf="!person.age">Unknown</span>
+      </td>
+      <td>
+        <span class="remove-person" (click)="removePerson(person)">
+          x
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
